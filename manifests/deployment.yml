@@ -20,9 +20,9 @@ spec:
         ports:
         - containerPort: 80
         env:
-            - name: DB_HOST
-              value: mysqldb
-            resources:
+        - name: DB_HOST
+          value: mysqldb
+        resources:
           requests:
             cpu: "100m"
           limits:
