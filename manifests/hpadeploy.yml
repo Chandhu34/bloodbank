@@ -1,0 +1,19 @@
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: apphpa
+spec:
+  ScaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-deploy
+  minReplicas: 3
+  maxReplicas: 8
+  metrics:
+    - type: Resorce
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
