@@ -1,7 +1,6 @@
-FROM php:8.2-apache-bookworm-slim
+FROM php:8.1-apache
 
-RUN docker-php-ext-install mysqli \
-    && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN docker-php-ext-install mysqli
 
 COPY . /var/www/html/
 
