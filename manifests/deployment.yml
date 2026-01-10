@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: DB_HOST
-          value: mysqldb
+          - name: DB_HOST
+            value: mysqldb
       imagePullSecrets:
             - name: dockerhub-secret
