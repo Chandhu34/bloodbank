@@ -22,5 +22,10 @@ spec:
         env:
           - name: DB_HOST
             value: mysqldb
+        resources:          
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "500m"
       imagePullSecrets:
             - name: dockerhub-secret
