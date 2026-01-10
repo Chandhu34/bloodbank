@@ -1,9 +1,16 @@
-FROM php:8.1-apache-bookworm
+FROM php:8.2-apache-bookworm-slim
 
-RUN docker-php-ext-install mysqli \
-    && rm -rf /var/lib/apt/lists/*
+# Install only what is required and patch OS CVEs
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && docker-php-ext-install mysqli \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
 
+# Copy application code
 COPY . /var/www/html/
+
+# Correct permissions for Apache
 RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
