@@ -7,7 +7,7 @@ spec:
   ScaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: my-deploy
+    name: nginx-deployment
   minReplicas: 3
   maxReplicas: 8
   metrics:
